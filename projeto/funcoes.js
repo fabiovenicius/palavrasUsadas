@@ -18,6 +18,11 @@ function lerDiretorio(caminho){
     
 }
 
+function elementosTerminadosCom(array, final){
+    return array.filter(el=>el.endsWith(final))
+}
+
 module.exports = {
-    lerDiretorio
+    lerDiretorio,
+    elementosTerminadosCom
 }
