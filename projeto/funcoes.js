@@ -34,8 +34,14 @@ function lerArquivo(caminho){
     })
 }
 
+function lerArquivos(caminhos){
+    //Resolve após a resolução de todas as promises
+    return Promise.all(caminhos.map(caminho=>lerArquivo(caminho)))
+}
+
 module.exports = {
     lerDiretorio,
     elementosTerminadosCom,
-    lerArquivo
+    lerArquivo,
+    lerArquivos
 }
