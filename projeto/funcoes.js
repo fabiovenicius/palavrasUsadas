@@ -47,6 +47,12 @@ function removerSeincluirTexto(array,TextoFiltroExclusao){
     return array.filter(el=>!el.includes(TextoFiltroExclusao))
 }
 
+function removerSeSomenteNumero(array){
+    return array.filter(el=>{
+        const num = parseInt(el.trim())
+        return num!==num
+    })
+}
 
 module.exports = {
     lerDiretorio,
@@ -54,5 +60,6 @@ module.exports = {
     lerArquivo,
     lerArquivos,
     removerVazio,
-    removerSeincluirTexto
+    removerSeincluirTexto,
+    removerSeSomenteNumero
 }
