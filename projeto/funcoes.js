@@ -22,7 +22,20 @@ function elementosTerminadosCom(array, final){
     return array.filter(el=>el.endsWith(final))
 }
 
+function lerArquivo(caminho){
+    return new Promise((resolve,reject)=>{
+    try{
+        const conteudo = fs.readFileSync(caminho, {encoding:'utf-8'})
+        resolve(conteudo)
+    }catch(e){
+        reject(e)
+    }
+        
+    })
+}
+
 module.exports = {
     lerDiretorio,
-    elementosTerminadosCom
+    elementosTerminadosCom,
+    lerArquivo
 }
