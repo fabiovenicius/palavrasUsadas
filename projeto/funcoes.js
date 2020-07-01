@@ -43,10 +43,16 @@ function removerVazio(array){
     return array.filter(el=>el.trim())
 }
 
+function removerSeincluirTexto(array,TextoFiltroExclusao){
+    return array.filter(el=>!el.includes(TextoFiltroExclusao))
+}
+
+
 module.exports = {
     lerDiretorio,
     elementosTerminadosCom,
     lerArquivo,
     lerArquivos,
-    removerVazio
+    removerVazio,
+    removerSeincluirTexto
 }
