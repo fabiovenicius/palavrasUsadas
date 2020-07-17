@@ -86,7 +86,5 @@ module.exports = {
     removerSeSomenteNumero,
     removerCaracteres,
     mesclarConteudos,
-    separarPorLinhas,
-    separarPorPalavras,
     separarPor
 }
