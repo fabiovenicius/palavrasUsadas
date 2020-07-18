@@ -18,7 +18,7 @@ function lerDiretorio(caminho){
     
 }
 
-function elementosTerminadosCom(array, final){
+function elementosTerminadosCom(array,final){
     return array.filter(el=>el.endsWith(final))
 }
 
@@ -74,7 +74,24 @@ function separarPor(simbolo){
     return function(texto){
         return texto.split(simbolo)
     }
-} 
+}
+
+function agruparPalavras(palavras){
+    return Object.values(palavras.reduce((agrupamento,palavra) => {
+        const p = palavra.toLowerCase()
+        const qtde = agrupamento[p] ? agrupamento[p].qtde + 1 : 1
+        agrupamento[p] = { elemento: p, qtde}
+        return agrupamento
+    },{}))
+}
+
+function ordenarporAtribNumerico(attr, ordem = 'asc'){
+    return function (array){
+        const asc = (o1, o2) => o1[attr] - o2[attr]
+        const desc = (o1, o2) => o2[attr] - o1[attr]
+        return array.sort(ordem === 'asc' ? asc : desc)
+    }
+}
 
 module.exports = {
     lerDiretorio,
@@ -86,5 +103,7 @@ module.exports = {
     removerSeSomenteNumero,
     removerCaracteres,
     mesclarConteudos,
-    separarPor
+    separarPor,
+    agruparPalavras,
+    ordenarporAtribNumerico
 }
